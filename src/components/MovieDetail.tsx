@@ -1,10 +1,7 @@
 import React, { ReactElement } from "react";
 import { Stack, Text, Box } from "@chakra-ui/react";
 
-const MovieDetail = ({
-    label,
-    value
-}: {
+const MovieDetail = ({ label, value }: {
     label: string;
     value: React.ReactNode;
 }): ReactElement => (

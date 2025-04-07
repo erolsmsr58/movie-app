@@ -25,6 +25,7 @@ export default tseslint.config(
       ],
       'semi': ['error', 'always'],
       'comma-dangle': ['error', 'never'],
+      'quotes': ['error', 'double'], // Enforce double quotes
     }
   }
 );
