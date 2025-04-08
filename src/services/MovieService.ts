@@ -1,25 +1,26 @@
 import axios from "axios";
+import { IMDB_API_URL } from "../constants";
 
-const API_KEY = "6c3a2d45";
-const API_URL = "https://www.omdbapi.com/";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
-class MovieService {
-    static async searchMovies(query: string) {
-        if (!query.trim()) return [];
-
-        try {
-            const response = await axios.get(API_URL, {
-                params: {
-                    s: query,
-                    apikey: API_KEY
-                }
-            });
-            return response.data.Search || [];
-        } catch (error) {
-            console.error("Error fetching movies:", error);
-            return [];
+export const searchMovies = async (query: string) => {
+    const { data } = await axios.get(IMDB_API_URL, {
+        params: {
+            s: query,
+            apikey: API_KEY
         }
-    }
-}
+    });
 
-export default MovieService;
+    return data.Search || [];
+};
+
+export const getMovieDetails = async (imdbID: string) => {
+    const { data } = await axios.get(IMDB_API_URL, {
+        params: {
+            i: imdbID,
+            apikey: API_KEY
+        }
+    });
+
+    return data;
+};

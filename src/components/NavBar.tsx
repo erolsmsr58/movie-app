@@ -11,10 +11,10 @@ const NavBar = () => {
         The code does compile and run perfectly because we are properly passing as={RouterLink}, which is
         still rendering a Link component underneath.
       */}
-      <Button as={RouterLink} to="/" variant="ghost">
+      <Button as={RouterLink} to="/" variant="solid">
         Search
       </Button>
-      <Button as={RouterLink} to="/featured" variant="ghost">
+      <Button as={RouterLink} to="/featured" variant="solid">
         Featured
       </Button>
     </HStack>

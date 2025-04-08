@@ -1,10 +1,12 @@
+import { ReactElement } from "react";
 import { Container } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Featured from "./pages/Featured";
-import Search from "./pages/Search";
-import NavBar from "./components/NavBar";
 
-const App = () => {
+import NavBar from "./components/NavBar";
+import Search from "./pages/Search";
+import Featured from "./pages/Featured";
+
+const Router = (): ReactElement => {
     return (
         <BrowserRouter>
             <Container maxW="6xl" py={10}>
@@ -18,4 +20,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default Router;

@@ -1,21 +1,27 @@
-
 import { ReactElement } from "react";
-import { Heading, Stack, Box, SimpleGrid } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+
 import MovieCard from "../components/MovieCard";
-import { MockMovie } from "../../tests/MockMovie";
+import { useFeaturedMovies } from "../hooks/useFeaturedMovies";
 
 const Featured = (): ReactElement => {
+    const { data: featuredMovies, isLoading, isError } = useFeaturedMovies();
+
     return (
         <Stack gap={6}>
-            <Box>
-                <Heading mb={3}>
-                    Featured Movies
-                </Heading>
+            <Heading>Featured Movies</Heading>
+
+            {isLoading ? (
+                <Text>Loading...</Text>
+            ) : isError ? (
+                <Text>Error loading featured movies</Text>
+            ) : (
                 <SimpleGrid columns={{ base: 1, md: 2 }} gap={4}>
-                    <MovieCard movie={MockMovie} />
-                    <MovieCard movie={{ ...MockMovie, title: "Interstellar", year: "2014" }} />
+                    {featuredMovies?.map((movie) => (
+                        <MovieCard key={movie.imdbID} movie={movie} showFullDetails={false} />
+                    ))}
                 </SimpleGrid>
-            </Box>
+            )}
         </Stack>
     );
 };
