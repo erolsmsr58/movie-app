@@ -8,6 +8,12 @@ test("Search page should search for movies and display results", async ({ page }
     await input.fill("Interstellar");
 
     const movieCards = page.locator("[data-testid='movie-card']");
+
     await expect(movieCards).toHaveCount(5);
-    await expect(movieCards.first()).toBeVisible();
+
+    const count = await movieCards.count();
+    for (let i = 0; i < count; i++) {
+        const card = movieCards.nth(i);
+        await expect(card).toBeVisible();
+    }
 });

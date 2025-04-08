@@ -1,7 +1,9 @@
 import { ReactElement } from "react";
-import { Heading, Stack, Input, Box, Text } from "@chakra-ui/react";
+import { Heading, Stack, Box } from "@chakra-ui/react";
 
-import SearchResults from "../components/SearchResults";
+import SearchInput from "../components/Search/SearchInput";
+import SearchResults from "../components/Search/SearchResults";
+import SearchStatusMessage from "../components/Search/SearchStatusMessage";
 import { useSearchStore } from "../store";
 import { useSearchMovies } from "../hooks/useSearchMovies";
 
@@ -12,25 +14,19 @@ const Search = (): ReactElement => {
     return (
         <Stack gap={6}>
             <Heading>Search Movies</Heading>
-            <Stack direction={{ base: "column", sm: "row" }} gap={3}>
-                <Input
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}
-                    placeholder="Search movie title..."
-                />
-            </Stack>
+
+            <SearchInput query={query} setQuery={setQuery} />
 
             <Box>
                 <Heading size="md" mb={3}>
                     Search Results
                 </Heading>
 
-                {isLoading
-                    ? <Text>Loading...</Text>
-                    : isError
-                        ? <Text>Error loading featured movies</Text>
-                        : <SearchResults isDetailsLoading={isDetailsLoading} detailedMovies={detailedMovies} />
-                }
+                {isLoading || isError ? (
+                    <SearchStatusMessage status={isLoading ? "loading" : "error"} />
+                ) : (
+                    <SearchResults isDetailsLoading={isDetailsLoading} detailedMovies={detailedMovies} />
+                )}
             </Box>
         </Stack>
     );

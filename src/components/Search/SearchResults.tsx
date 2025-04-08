@@ -1,9 +1,9 @@
 import { ReactElement } from "react";
 import { SimpleGrid, Box } from "@chakra-ui/react";
 
-import MovieCard from "./MovieCard/MovieCard";
-import { Movie } from "../../typings/Movie";
-import { SearchResultsProps } from "../../typings/SearchResultsProps";
+import MovieCard from "../MovieCard/MovieCard";
+import { Movie } from "../../../typings/Movie";
+import { SearchResultsProps } from "../../../typings/SearchResultsProps";
 
 const SearchResults = ({ isDetailsLoading, detailedMovies }: SearchResultsProps): ReactElement => {
     return (
