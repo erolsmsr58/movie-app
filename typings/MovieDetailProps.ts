@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export interface MovieDetailProps {
+export type MovieDetailProps = {
     label: string;
     value: ReactNode;
 };

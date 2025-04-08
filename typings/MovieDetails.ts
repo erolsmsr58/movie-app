@@ -1,9 +1,9 @@
-export interface Rating {
+export type Rating = {
     Source: string;
     Value: string;
 };
 
-export interface MovieDetails {
+export type MovieDetails = {
     Title: string;
     Year: string;
     Rated: string;

@@ -1,6 +1,6 @@
 import { Movie } from "../typings/Movie";
 
-export interface SearchResultsProps {
+export type SearchResultsProps = {
     isDetailsLoading: boolean,
     detailedMovies: Movie[] | undefined
 };

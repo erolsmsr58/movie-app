@@ -1,6 +1,6 @@
 import { Movie } from "./Movie";
 
-export interface SearchResults {
+export type SearchResults = {
     detailedMovies: Movie[] | undefined;
     isLoading: boolean;
     isError: boolean;
