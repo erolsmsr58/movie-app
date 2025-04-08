@@ -2,17 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 
 import { searchMovies, getMovieDetails } from "../services/MovieService";
 import { useDebounce } from "./useDebounce";
-import { Movie } from "../typings/Movie";
-import { API_CALL_DEBOUNCE, API_CALL_STALE_TIME } from "../constants";
+import { Movie } from "../../typings/Movie";
+import { SearchResults } from "../../typings/SearchResults";
+import { API_DEBOUNCE_DURATION, API_CALL_STALE_TIME } from "../../constants";
 
-export const useSearchMovies = (query: string): {
-    detailedMovies: Movie[] | undefined;
-    isLoading: boolean;
-    isError: boolean;
-    error: Error | null;
-    isDetailsLoading: boolean;
-} => {
-    const debouncedQuery = useDebounce(query, API_CALL_DEBOUNCE);
+export const useSearchMovies = (query: string): SearchResults => {
+    const debouncedQuery = useDebounce(query, API_DEBOUNCE_DURATION);
 
     const {
         data: searchResults,

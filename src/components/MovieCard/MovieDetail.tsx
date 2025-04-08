@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { Stack, Text, Box } from "@chakra-ui/react";
-import { MovieDetailProps } from "../typings/MovieDetailProps";
+import { MovieDetailProps } from "../../../typings/MovieDetailProps";
 
 const MovieDetail = ({ label, value }: MovieDetailProps): ReactElement => (
     <Stack direction="row" gap={1} align="start">

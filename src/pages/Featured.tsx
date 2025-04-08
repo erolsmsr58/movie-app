@@ -1,11 +1,12 @@
 import { ReactElement } from "react";
 import { Heading, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 
-import MovieCard from "../components/MovieCard";
+import MovieCard from "../components/MovieCard/MovieCard";
 import { useFeaturedMovies } from "../hooks/useFeaturedMovies";
+import { Movie } from "../../typings/Movie";
 
 const Featured = (): ReactElement => {
-    const { data: featuredMovies, isLoading, isError } = useFeaturedMovies();
+    const { featuredMovies, isLoading, isError } = useFeaturedMovies();
 
     return (
         <Stack gap={6}>
@@ -16,11 +17,13 @@ const Featured = (): ReactElement => {
             ) : isError ? (
                 <Text>Error loading featured movies</Text>
             ) : (
-                <SimpleGrid columns={{ base: 1, md: 2 }} gap={4}>
-                    {featuredMovies?.map((movie) => (
-                        <MovieCard key={movie.imdbID} movie={movie} showFullDetails={false} />
-                    ))}
-                </SimpleGrid>
+                featuredMovies && (
+                    <SimpleGrid columns={{ base: 1, md: 2 }} gap={4}>
+                        {featuredMovies.map((movie: Movie) => (
+                            <MovieCard key={movie.imdbID} movie={movie} showFullDetails={false} />
+                        ))}
+                    </SimpleGrid>
+                )
             )}
         </Stack>
     );

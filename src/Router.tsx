@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { Container } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import Search from "./pages/Search";
 import Featured from "./pages/Featured";
 

@@ -9,13 +9,13 @@ import {
     List
 } from "@chakra-ui/react";
 
-import { MovieCardProps } from "../typings/MovieCardProps";
+import { MovieCardProps } from "../../../typings/MovieCardProps";
 
 const MovieCard = ({ movie, showFullDetails = true }: MovieCardProps): ReactElement => {
     const [showFullPlot, setShowFullPlot] = useState(false);
 
-    const genres = movie.Genre.split(",").map((genre) => genre.trim());
-    const actors = movie.Actors.split(",").map((actor) => actor.trim());
+    const genres = movie.Genre.split(",").map((genre: string) => genre.trim());
+    const actors = movie.Actors.split(",").map((actor: string) => actor.trim());
 
     const isLongPlot = movie.Plot.length > 200;
     const shouldTruncate = showFullDetails && !showFullPlot;
@@ -66,7 +66,7 @@ const MovieCard = ({ movie, showFullDetails = true }: MovieCardProps): ReactElem
                             Genres:
                         </Text>
                         <List.Root gap={1}>
-                            {genres.map((genre, index) => (
+                            {genres.map((genre: string, index: number) => (
                                 <List.Item key={index} fontSize="sm">
                                     {genre}
                                 </List.Item>
@@ -87,7 +87,7 @@ const MovieCard = ({ movie, showFullDetails = true }: MovieCardProps): ReactElem
                             Actors:
                         </Text>
                         <List.Root gap={1}>
-                            {actors.map((actor, index) => (
+                            {actors.map((actor: string, index: number) => (
                                 <List.Item key={index} fontSize="sm">
                                     {actor}
                                 </List.Item>

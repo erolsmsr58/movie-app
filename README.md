@@ -1,54 +1,67 @@
-# React + TypeScript + Vite
+# Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Getting Started
 
-Currently, two official plugins are available:
+Follow the steps below to run the project locally:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Clone the repository
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/erolsmsr58/movie-app.git
+cd movie-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 3. Add your API key for the IMDB API
+
+1. Open the file `.example.env`.
+2. Replace `[insert your IMDB API key here]` with your API key.
+3. Save the file as `.env`.
+
+### 4. Start the development server
+```bash
+npm run dev
+```
+
+This will launch the app locally using Vite.
+
+> **_NOTE:_**  The app should now be running at http://localhost:5173.
+
+## Testing
+
+To be added later.
+
+## Tech Stack
+
+- React
+- TypeScript
+- Chakra UI
+- React Router DOM
+- React Query
+- Zustand
+- Vite
+
+## Environment
+
+- Node.js: v20.14.0
+- NPM: v10.7.0
+
+For exact dependency versions, check [package.json](https://github.com/erolsmsr58/movie-app/blob/master/package.json).
+
+## Deployment
+To build the project for production:
+
+```bash
+npm run build
+```
+
+Then preview the build locally:
+
+```bash
+npm run preview
 ```

@@ -1,10 +1,9 @@
 import { ReactElement } from "react";
-import { Heading, Stack, Input, Box, SimpleGrid, Text } from "@chakra-ui/react";
+import { Heading, Stack, Input, Box, Text } from "@chakra-ui/react";
 
+import SearchResults from "../components/SearchResults";
 import { useSearchStore } from "../store";
 import { useSearchMovies } from "../hooks/useSearchMovies";
-import MovieCard from "../components/MovieCard";
-import { Movie } from "../typings/Movie";
 
 const Search = (): ReactElement => {
     const { query, setQuery } = useSearchStore();
@@ -16,7 +15,7 @@ const Search = (): ReactElement => {
             <Stack direction={{ base: "column", sm: "row" }} gap={3}>
                 <Input
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(event) => setQuery(event.target.value)}
                     placeholder="Search movie title..."
                 />
             </Stack>
@@ -26,21 +25,12 @@ const Search = (): ReactElement => {
                     Search Results
                 </Heading>
 
-                {isLoading ? (
-                    <Text>Loading...</Text>
-                ) : isError ? (
-                    <Text>Error loading featured movies</Text>
-                ) : (
-                    <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={4}>
-                        {isDetailsLoading ? (
-                            <Box>Loading detailed movie info...</Box>
-                        ) : (
-                            detailedMovies?.slice(0, 5).map((movie: Movie) => (
-                                <MovieCard key={movie.imdbID} movie={movie} />
-                            ))
-                        )}
-                    </SimpleGrid>
-                )}
+                {isLoading
+                    ? <Text>Loading...</Text>
+                    : isError
+                        ? <Text>Error loading featured movies</Text>
+                        : <SearchResults isDetailsLoading={isDetailsLoading} detailedMovies={detailedMovies} />
+                }
             </Box>
         </Stack>
     );
