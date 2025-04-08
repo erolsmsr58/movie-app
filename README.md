@@ -34,7 +34,14 @@ This will launch the app locally using Vite.
 
 ## Testing
 
-To be added later.
+Because of complications with certain dependencies, adding unit tests was too time consuming to achieve within
+the given timeframe. Therefore, I have decided to add end-to-end tests with Playwright.
+
+### Run Playwright tests in the console:
+
+- First, you need to start the development server: `npm run dev`.
+- To run Playwright in the console, run `npm run test:e2e`.
+- To run the tests visually with the Playwright Chromium UI, run `npm run test:e2e-ui`.
 
 ## Tech Stack
 

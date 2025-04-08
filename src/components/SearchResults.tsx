@@ -12,7 +12,7 @@ const SearchResults = ({ isDetailsLoading, detailedMovies }: SearchResultsProps)
                 <Box>Loading detailed movie info...</Box>
             ) : (
                 detailedMovies?.slice(0, 5).map((movie: Movie) => (
-                    <MovieCard key={movie.imdbID} movie={movie} />
+                    <MovieCard key={movie.imdbID} movie={movie} data-testid="movie-card" />
                 ))
             )}
         </SimpleGrid>

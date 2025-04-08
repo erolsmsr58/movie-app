@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "npx playwright test",
+    "test:e2e-ui": "npx playwright test --ui"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.15.1",
@@ -23,7 +25,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
-    "@testing-library/react": "^16.3.0",
+    "@playwright/test": "^1.51.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react-swc": "^3.8.0",

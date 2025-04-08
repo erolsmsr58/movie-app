@@ -20,7 +20,12 @@ const Featured = (): ReactElement => {
                 featuredMovies && (
                     <SimpleGrid columns={{ base: 1, md: 2 }} gap={4}>
                         {featuredMovies.map((movie: Movie) => (
-                            <MovieCard key={movie.imdbID} movie={movie} showFullDetails={false} />
+                            <MovieCard
+                                key={movie.imdbID}
+                                movie={movie}
+                                showFullDetails={false}
+                                data-testid="movie-card"
+                            />
                         ))}
                     </SimpleGrid>
                 )
