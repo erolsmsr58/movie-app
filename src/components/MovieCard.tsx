@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { JSX, useState } from "react";
 import {
     Box,
     Image,
@@ -9,9 +9,9 @@ import {
     List
 } from "@chakra-ui/react";
 
-import { MovieCardProps } from "../../../typings/MovieCardProps";
+import { MovieCardProps } from "../../typings/MovieCardProps";
 
-const MovieCard = ({ movie, showFullDetails = true }: MovieCardProps): ReactElement => {
+const MovieCard = ({ movie, showFullDetails = true }: MovieCardProps): JSX.Element => {
     const [showFullPlot, setShowFullPlot] = useState(false);
 
     const genres = movie.Genre.split(",").map((genre: string) => genre.trim());
@@ -52,7 +52,7 @@ const MovieCard = ({ movie, showFullDetails = true }: MovieCardProps): ReactElem
                     </Stack>
 
                     <Text fontSize="sm" color="gray.500">
-                        Released: {movie.Year} • Rated: {movie.Rated}
+                        Released: {movie.Year}
                     </Text>
 
                     {showFullDetails && (
