@@ -1,13 +1,13 @@
-import { ReactElement } from "react";
+import { JSX } from "react";
 import { Heading, Stack, Box } from "@chakra-ui/react";
 
 import SearchInput from "../components/Search/SearchInput";
 import SearchResults from "../components/Search/SearchResults";
-import SearchStatusMessage from "../components/Search/SearchStatusMessage";
+import StatusMessage from "../components/StatusMessage";
 import { useSearchStore } from "../store";
 import { useSearchMovies } from "../hooks/useSearchMovies";
 
-const Search = (): ReactElement => {
+const Search = (): JSX.Element => {
     const { query, setQuery } = useSearchStore();
     const { detailedMovies, isLoading, isError, isDetailsLoading } = useSearchMovies(query);
 
@@ -23,7 +23,7 @@ const Search = (): ReactElement => {
                 </Heading>
 
                 {isLoading || isError ? (
-                    <SearchStatusMessage status={isLoading ? "loading" : "error"} />
+                    <StatusMessage status={isLoading ? "loading" : "error"} />
                 ) : (
                     <SearchResults isDetailsLoading={isDetailsLoading} detailedMovies={detailedMovies} />
                 )}

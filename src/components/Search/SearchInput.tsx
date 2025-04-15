@@ -1,9 +1,9 @@
-import { ReactElement } from "react";
+import { JSX } from "react";
 import { Input, Stack } from "@chakra-ui/react";
 
 import { SearchInputProps } from "../../../typings/SearchInputProps";
 
-const SearchInput = ({ query, setQuery }: SearchInputProps): ReactElement => {
+const SearchInput = ({ query, setQuery }: SearchInputProps): JSX.Element => {
     return (
         <Stack direction={{ base: "column", sm: "row" }} gap={3}>
             <Input
